@@ -1,6 +1,6 @@
-import tensorflow as tf
 import os
 import random
+import tensorflow as tf
 import tensorflow_datasets as tfds
 import numpy as np
 
@@ -76,14 +76,14 @@ def load_and_preprocess_image(image_path):
 
 # Model Training
 ds_train, ds_test, ds_info = load_mnist_data()
-ds_train = preprocess_dataset(ds_train)
-ds_test = preprocess_dataset(ds_test)
+ds_train_preprocessed = preprocess_dataset(ds_train)
+ds_test_preprocessed = preprocess_dataset(ds_test)
 
 model = build_model()
 model.fit(
-    ds_train,
+    ds_train_preprocessed,
     epochs=6,
-    validation_data=ds_test,
+    validation_data=ds_test_preprocessed,
     callbacks=[tf.keras.callbacks.EarlyStopping(patience=2)],
 )  # Add early stopping
 model.save("mnist_model.keras")
@@ -92,7 +92,7 @@ model.save("mnist_model.keras")
 model = tf.keras.models.load_model("mnist_model.keras")
 
 # Evaluation on the test set
-test_loss, test_accuracy = model.evaluate(ds_test)
+test_loss, test_accuracy = model.evaluate(ds_test_preprocessed)
 print("Test Loss:", test_loss)
 print("Test Accuracy:", test_accuracy)
 
