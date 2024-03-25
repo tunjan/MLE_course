@@ -65,7 +65,6 @@ def build_model():
 
 def load_and_preprocess_image(image_path):
     """Loads and preprocesses a single image for inference."""
-    # Load image (using your preferred library like PIL, OpenCV etc.)
     image = tf.keras.preprocessing.image.load_img(
         image_path, grayscale=True, target_size=(28, 28)
     )
