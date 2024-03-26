@@ -12,7 +12,7 @@ all: build run
 
 save:
 	docker cp $(container_id):/app/output/mnist_model.keras model.keras
-	docker cp $(container_id):/app/output/test_predictions.csv predictions.csv
+	docker cp $(container_id):/app/output/test_predictions.csv test_predictions.csv
 
 clean:
 	docker rmi $(IMAGE_NAME)
