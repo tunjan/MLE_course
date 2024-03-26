@@ -1,16 +1,20 @@
-# Variables
 IMAGE_NAME = image-classifier
+container_id=$(shell docker ps -alq)
 
 build:
 	docker build -t $(IMAGE_NAME) .
 
-# Run the inference script inside the container
 run:
 	docker run -it $(IMAGE_NAME)
 
-# A convenient target for both building and running
+#Missing separator
 all: build run
 
-# Clean up the Docker image (optional)
+save:
+	docker cp $(container_id):/app/output/mnist_model.keras model.keras
+	docker cp $(container_id):/app/output/test_predictions.csv predictions.csv
+
 clean:
 	docker rmi $(IMAGE_NAME)
+
+.PHONY: build run all save clean
