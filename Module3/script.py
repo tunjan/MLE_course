@@ -71,7 +71,7 @@ class HousingModel:
 
         plt.tight_layout()
 
-        residuals_dir = "residual_plots"
+        residuals_dir = "figures"
         os.makedirs(residuals_dir, exist_ok=True)
 
         plot_filename = f"{name}_residuals.png"

@@ -1,9 +1,19 @@
-FROM python:3.9.16
+FROM python:3.9.16-slim-buster
 
-COPY requirements.txt /app/requirements.txt
-WORKDIR /app
+RUN adduser --disabled-password --gecos '' appuser
+
+WORKDIR /home/appuser
+
+RUN mkdir -p /home/appuser/figures && chown -R appuser:appuser /home/appuser/figures
+
+COPY requirements.txt /home/appuser
+
+ENV PATH="${PATH}:/home/appuser/.local/bin"
+
+USER appuser
+
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . /app
+COPY script.py /home/appuser
 
-CMD ["python", "script.py"]
+CMD ["python", "script.py", "/bin/bash"]

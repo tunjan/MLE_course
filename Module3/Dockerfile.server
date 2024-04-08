@@ -1,14 +1,22 @@
-FROM python:3.9.16
+FROM python:3.9.16-slim-buster
+
+RUN adduser --disabled-password --gecos '' appuser
 
 # Set the working directory to /app
-WORKDIR /app
+WORKDIR /home/appuser
+
+RUN mkdir -p /home/appuser/mlruns && chown -R appuser:appuser /home/appuser/mlruns
+
+RUN mkdir -p /home/appuser/artifacts && chown -R appuser:appuser /home/appuser/artifacts
+
+ENV PATH="${PATH}:/home/appuser/.local/bin"
+
+USER appuser
 
 RUN pip install mlflow
-# Copy the current directory contents into the container at /app
-COPY . /app
 
 # Expose port 5000 for the MLflow server
 EXPOSE 5000
 
 # Start the MLflow server
-CMD ["mlflow", "server", "--host", "0.0.0.0", "--port", "5000"]
+CMD ["mlflow", "server", "--host", "mlflow-server", "--artifacts-destination", "/home/appuser/artifacts", "--backend-store-uri", "/home/appuser/mlruns", "--port", "5000"]
