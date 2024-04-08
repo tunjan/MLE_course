@@ -1,0 +1,26 @@
+networks:
+  mlflow-network:
+    driver: bridge
+
+services:
+  mlflow-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    container_name: mlflow-server
+    networks:
+      - mlflow-network
+    user: appuser
+
+  docker-client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    container_name: docker-client
+    networks:
+      - mlflow-network
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow-server:5000
+    depends_on:
+      - mlflow-server
+    user: appuser
