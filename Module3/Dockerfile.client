@@ -6,6 +6,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app
 
-ENV MLFLOW_TRACKING_URI=http://mlflow-server:5000
-
 CMD ["python", "script.py"]

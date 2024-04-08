@@ -155,4 +155,5 @@ def main():
 
 
 if __name__ == "__main__":
+    mlflow.set_tracking_uri("http://mlflow-server:5000")
     main()
