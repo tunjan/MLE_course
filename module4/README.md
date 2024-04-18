@@ -1,5 +1,4 @@
 # Titanic Survival Prediction Model Training
-# Titanic Survival Prediction Model Training
 
 <!--toc:start-->
 - [Titanic Survival Prediction Model Training](#titanic-survival-prediction-model-training)
@@ -24,7 +23,7 @@ This project contains an Apache Airflow DAG (Directed Acyclic Graph) that trains
   1. Clone the repository:
 ```bash
     git clone https://github.com/tunjan/MLE_course.git
-    cd MLE_couse/module4
+    cd MLE_course/module4
     mkdir -p ./models ./logs ./plugins
     echo -e "AIRFLOW_UID=$(id -u)" > .env
 ```
@@ -56,8 +55,7 @@ The titanic_model_training DAG performs the following tasks:
   2. Preprocess Data: Drops non-essential columns and fills missing values in the dataset.
   3. Encode Data: Encodes categorical features using predefined mappings or one-hot encoding.
   4. Split and Scale Data: Splits the data into training and testing sets, and scales the features using StandardScaler.
-  5. Train and Evaluate: Trains Logistic Regression and Naive Bayes models on the training data, evaluates their performance 
-  6. on the testing data, and selects the model with the highest accuracy. The best model is persisted to disk.
+  5. Train and Evaluate: Trains Logistic Regression and Naive Bayes models on the training data, evaluates their performance on the testing data, and selects the model with the highest accuracy. The best model is persisted to disk.
 
 ## Model Persistence
 
