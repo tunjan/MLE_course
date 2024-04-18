@@ -1,2 +1,9 @@
 *.keras
 *.csv
+mlruns/
+__pycache__/
+__init__.py
+*.pkl
+logs/
+mlartifacts/
+figures/

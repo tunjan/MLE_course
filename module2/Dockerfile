@@ -5,6 +5,7 @@ RUN adduser --disabled-password --gecos '' appuser
 
 WORKDIR /app
 
+
 RUN mkdir -p /app/output && chown -R appuser:appuser /app/output
 
 # Copy requirements first to take advantage of Docker's caching mechanism
