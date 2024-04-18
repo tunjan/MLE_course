@@ -1,4 +1,5 @@
 # Titanic Survival Prediction Model Training
+# Titanic Survival Prediction Model Training
 
 <!--toc:start-->
 - [Titanic Survival Prediction Model Training](#titanic-survival-prediction-model-training)
@@ -24,16 +25,17 @@ This project contains an Apache Airflow DAG (Directed Acyclic Graph) that trains
 ```bash
     git clone https://github.com/tunjan/MLE_course.git
     cd MLE_couse/module4
-    mkdir models
+    mkdir -p ./models ./logs ./plugins
+    echo -e "AIRFLOW_UID=$(id -u)" > .env
 ```
   2. Build the Docker image:
 ```docker
-    docker-compose build
+    docker compose up airflow-init
 ```
 
   3. Start the Airflow services:
 ```docker
-    docker-compose up -d
+    docker compose up
 ```
   4. Access the Airflow UI at http://localhost:8080 and log in with the default credentials (username: airflow, password: airflow).
   5. Unpause the titanic_model_training DAG, and then manually trigger it.
