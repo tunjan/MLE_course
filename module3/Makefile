@@ -11,9 +11,5 @@ save:
 	docker cp $(SERVER_NAME):/home/appuser/artifacts .
 	docker cp $(SERVER_NAME):/home/appuser/mlruns .
 
-deploy: 
-	$(shell export MLFLOW_TRACKING_URI=http://127.0.0.1:5000)
-	mlflow models build-docker --model-uri "models:/best_model/latest" --name "best_model"
-
 delete:
 	docker compose down

@@ -57,7 +57,7 @@ This will copy the trained model artifacts and residual plots from the Docker co
 
 To deploy the best-performing model as a Docker container, run the following command:
 
-```
+```bash
 make deploy
 ```
 This will build a Docker image for the best model and set the appropriate environment variable for using the local MLflow server for model serving.
