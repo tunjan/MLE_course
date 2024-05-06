@@ -121,11 +121,13 @@ def run_experiment(X_train, X_test, y_train, y_test):
                 search = RandomizedSearchCV(model, params, n_iter=N_ITER, cv=CV)
                 search.fit(X_train, y_train)
                 best_model = search.best_estimator_
-                _, _ = trainer.train_and_evaluate(X_train, X_test, y_train, y_test, best_model, name)
+                train_rmse, test_rmse = trainer.train_and_evaluate(X_train, X_test, y_train, y_test, best_model, name)
             else:
-                _, _ = trainer.train_and_evaluate(X_train, X_test, y_train, y_test, model, name)
+                train_rmse, test_rmse = trainer.train_and_evaluate(X_train, X_test, y_train, y_test, model, name)
+                
+            mlflow.log_metric("test_rmse", test_rmse)
+            mlflow.log_metric("train_rmse", train_rmse)
 
-    # Optional: Log the best model
     if trainer.best_model:
         mlflow.sklearn.log_model(trainer.best_model, artifact_path=BEST_MODEL_ARTIFACT_PATH)
 

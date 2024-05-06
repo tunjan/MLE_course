@@ -14,6 +14,6 @@ USER appuser
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY script.py /home/appuser
+COPY client.py /home/appuser
 
-CMD ["python", "script.py", "/bin/bash"]
+CMD ["python", "client.py", "/bin/bash"]

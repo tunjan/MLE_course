@@ -4,7 +4,7 @@ MLFLOW_NETWORK = mlflow-network
 
 
 run:
-	docker-compose up -d
+	docker compose up -d
 
 save:
 	docker cp $(CLIENT_NAME):/home/appuser/figures .
@@ -16,4 +16,4 @@ deploy:
 	mlflow models build-docker --model-uri "models:/best_model/latest" --name "best_model"
 
 delete:
-	docker-compose down
+	docker compose down

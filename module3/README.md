@@ -42,7 +42,7 @@ This command will build the MLflow server and client Docker images, create a Doc
 
 ### Access MLFlow UI
 
-After the containers are up and running, you can access the MLflow UI at the address listed in the `docker-compose logs mlflow-server` command output.
+After the containers are up and running, you can access the MLflow UI at the address listed in the `docker compose logs mlflow-server` command output.
 You can view the experiment runs, logged metrics, and artifacts in the MLflow UI.
 
 ### Save models
