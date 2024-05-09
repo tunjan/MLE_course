@@ -1,0 +1,131 @@
+
+body {
+    font-family: monospace ,sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    max-width: 40rem;
+    margin:auto;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 2px solid black;
+    margin: 1rem 0;
+    display: flex;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+        background-color: #ffe580;
+        color: #373737;
+        border-radius: 3px;
+        font-weight: bold;
+        border: 2px solid black;
+        padding: 10px 20px;
+        box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        font-size: 16px;
+        transition: all .1s ease-in-out;
+        margin-left: -1ch;
+border-left: none;
+border-top-left-radius: 0;
+border-bottom-left-radius: 0;
+}
+
+.to-the-right{
+    margin-left: auto;
+}
+
+    
+.custom-file-upload:hover {
+    background-color: #3199df;
+    box-shadow: none;
+}
+
+
+.special {
+    margin: 1rem;
+}
+
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: .5rem 0;
+    margin-bottom: 15px;
+    border: 2px solid #ddd;
+    border-radius: 3px;
+    font-size: 16px;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+}
+
+
+.batch{
+    background-color: #43b4ff82;
+    color: black;
+    border-radius: 3px;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+    border: 2px solid black;
+    padding: 10px 20px;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    font-size: 16px;
+    transition: all .1s ease-in-out;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+input[type="submit"] {
+    background-color: #43b4ff82;
+    color: black;
+    border-radius: 3px;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+    border: 2px solid black;
+    padding: 10px 20px;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    font-size: 16px;
+    transition: all .1s ease-in-out;
+}
+
+
+input[type="submit"]:hover {
+    background-color: #3199df;
+    box-shadow: none;
+}
+
+ul {
+    list-style-type: none;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 2px solid black;
+}
+
+li {
+    margin-bottom: 10px;
+}

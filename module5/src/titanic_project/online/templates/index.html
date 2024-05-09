@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Titanic Survival Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Titanic Survival Prediction</h1>
+    <form method="post" action="/" enctype="multipart/form-data">
+        <input type="submit" name="action" value="TOGGLE SINGLE PREDICTION">
+        <div class="to-the-right">
+        <input type="submit" name="action" value="BATCH PREDICTION" class="batch">
+        <label class="custom-file-upload">
+          <input type="file" name="file"/>
+          <i class="fa-regular fa-folder"></i>
+      </label>
+    </div>
+    </form>
+    {% if show_single_form %}
+    <form method="post" action="/">
+        <div>
+            <label>Pclass (Ticket class 1/2/3):</label>
+            <input type="number" name="Pclass" required>
+            <label>Sex (male/female):</label>
+            <input type="text" name="Sex" required>
+            <label>Age:</label>
+            <input type="number" name="Age" required>
+            <label>SibSp (number of siblings or spouses aboard):</label>
+            <input type="number" name="SibSp" required>
+            <label>Parch (number of parents or children aboard):</label>
+            <input type="number" name="Parch" required>
+            <label>Fare (passenger fare):</label>
+            <input type="text" name="Fare" required>
+            <label>Embarked (Port of Embarcation S/C/Q):</label>
+            <input type="text" name="Embarked" required>
+            <input type="submit" name="action" value="SINGLE PREDICTION">
+        </div>
+    </form>
+    {% endif %}
+    </form>
+    {% if predictions %}
+    <h2>Predictions:</h2>
+    <ul>
+        {% for prediction in predictions %}
+        <li>{{ 'Survived' if prediction == 1 else 'Did not survive' }}</li>
+        {% endfor %}
+    </ul>
+    {% elif message %}
+    <p>{{ message }}</p>
+    {% else %}
+    <p>Please submit data to get predictions.</p>
+    {% endif %}
+    <script src="https://kit.fontawesome.com/3ab2c21e85.js" crossorigin="anonymous"></script>
+</body>
+</html>
+
