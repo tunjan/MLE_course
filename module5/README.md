@@ -5,7 +5,9 @@ This project consists of a Flask-based web application and Airflow pipeline that
 ## Requirements
 - docker
 - python
-**Note**: make sure docker is running as a background service and you have user access
+
+> [!IMPORTANT]  
+>  Make sure docker is running as a background service and you have user access
 
 ## Features
 
@@ -64,7 +66,11 @@ airflow db init
 airflow users create --role Admin --username admin --email admin --firstname admin --lastname admin --password admin
 ```
 
-3. Go to `~/airflow/airflow.cfg` and change the `dags_folder` path to the one of this repository `~path-to-this-repo/module5/src/titanic_project/dags`. Also, set `load_examples = False` in the `airflow.cfg` file.
+3. Go to `~/airflow/airflow.cfg` and change the `dags_folder` path to the one of this repository `~/path-to-this-repo/module5/src/titanic_project/dags`.
+
+> [!TIP]
+> set `load_examples = False` in the `airflow.cfg` file.
+
 
 4. Start the airflow app.
 ```bash
