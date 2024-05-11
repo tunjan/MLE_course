@@ -5,6 +5,7 @@ This project consists of a Flask-based web application and Airflow pipeline that
 ## Requirements
 - docker
 - python
+**Note**: make sure docker is running as a background service and you have user access
 
 ## Features
 
