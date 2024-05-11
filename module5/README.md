@@ -17,71 +17,62 @@ This project consists of a Flask-based web application and Airflow pipeline that
 ## Installation
 
 1. Clone the repository:
-
-`git clone https://github.com/tunjan/MLE_course.git`
-
+```bash
+git clone https://github.com/tunjan/MLE_course.git
+```
 
 2. Navigate to the project directory:
 
-`cd MLE_course/module5`
+```bash
+cd MLE_course/module5
+```
 
 3. Create a python environment:
 	
-`python3 -m venv titanic_env`
-`source titanic_env/bin/activate`
+```bash
+python3 -m venv titanic_env
+source titanic_env/bin/activate
+```
 
 4. Install the required dependencies:
-
-`pip install -e .[dev]`
+```bash
+pip install -e .[dev]
+```
 
 ## Usage
 
 ### Running the web app
 
 To start the Flask server and access the web application, run the following command:
-
-`start-online-server`
+```bash
+start-online-server
+```
 
 The server will start running on `http://127.0.0.1:5000`. Open your web browser and navigate to this address to access the application.
 
 ### Running the Airflow Pipeline
 
 1. Start the airflow app.
-`airflow db init`
+```bash
+airflow db init
+```
 
 2. Create a user.
 
-```airflow users  create --role Admin --username admin --email admin --firstname admin --lastname admin --password admin```
+```bash
+airflow users create --role Admin --username admin --email admin --firstname admin --lastname admin --password admin
+```
 
 3. Go to `~/airflow/airflow.cfg` and change the `dags_folder` path to the one of this repository `~path-to-this-repo/module5/src/titanic_project/dags`. Also, set `load_examples = False` in the `airflow.cfg` file.
 
-4. Stop the airflow app and load it again with. `airflow scheduler & airflow webserver --port 8080` and run start the Titanic DAG.
-
-5.	Run the Titanic Project DAG. It will automatically take the file in the `input/` directory and return the predictions file in the `output/` directory.
+4. Start the airflow app.
+```bash
+airflow scheduler & airflow webserver --port 8080
+```
+5. Run the Titanic Project DAG. It will automatically take the file in the `input/` directory and return the predictions file in the `output/` directory.
 6. When the last step of the pipeline has been executed you can access the flask web app at `http://127.0.0.1:5000`
 
 ## Project Structure
-
-my-project/
-├── src/
-│   └── titanic_project/
-│       ├── batch/
-│       │   └── batch_pipeline.py
-│       ├── data/
-│       │   └── data_utils.py
-│       ├── models/
-│       │   └── model_utils.py
-│       └── online/
-│           └── app.py
-├── artifacts/
-│   ├── model.pkl
-│   └── scaler.pkl
-├── input/
-├── output/
-├── setup.py
-├── requirements.txt
-└── README.md
-
 - `src/titanic_project/batch/batch_pipeline.py`: Contains the code for running the batch prediction.
 - `src/titanic_project/data/data_utils.py`: Contains utility functions for data preprocessing and encoding.
 - `src/titanic_project/models/model_utils.py`: Contains utility functions for loading the pre-trained model and data transformer.
