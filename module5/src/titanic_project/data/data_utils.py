@@ -3,8 +3,12 @@ from pathlib import Path
 
 def load_data(data_path: Path) -> pd.DataFrame:
     """Load data from a file or database."""
-    data = pd.read_csv(data_path)
+    with open(data_path, 'rb') as f:
+        data = pd.read_csv(f)
     return data
+    
+    
+    
 
 CATEGORICAL_MAPPINGS = {
     "Sex": {"male": 1, "female": 0},

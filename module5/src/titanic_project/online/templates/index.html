@@ -50,6 +50,14 @@
     {% else %}
     <p>Please submit data to get predictions.</p>
     {% endif %}
+
+    {% if batch_data %}
+    <h2>Batch Predictions:</h2>
+    <div class="center-container">
+    {{ batch_data|safe }}
+    </div>
+    {% else %}
+    {% endif %}
     <script src="https://kit.fontawesome.com/3ab2c21e85.js" crossorigin="anonymous"></script>
 </body>
 </html>

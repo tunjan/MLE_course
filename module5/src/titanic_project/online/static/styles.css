@@ -127,5 +127,91 @@ ul {
 }
 
 li {
-    margin-bottom: 10px;
 }
+
+
+.batch-table th, .batch-table td {
+    border: 2px solid black;
+    padding: 8px;
+    border-radius: 3px;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.batch-table {
+    width: auto; /* Adjust width as necessary, could be 100% if needed */
+    margin: auto; /* Helps with centering if flex properties don't fully work */
+    border-collapse: collapse;
+    font-size: 0.9em;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border: 2px solid black;
+    border-radius: 3px;
+}
+
+.batch-table table{
+    border: 2px solid black;
+    border-collapse: collapse;
+    text-align: center;
+	vertical-align: middle;
+    border-radius: 3px;
+    border-collapse:separate;
+    border:solid black 1px;
+    border-radius:6px;
+}
+
+.batch-table thead th{
+    width: 25%;
+}
+
+.batch-table tbody tr:nth-child(odd) {
+    background-color: #fff;
+  }
+
+.batch-table tbody tr:nth-child(even) {
+    background-color: #eee;
+  }
+
+.batch-table tbody th {
+    background-color: #36c;
+    color: #fff;
+    text-align: left;
+  }
+
+.batch-table tbody tr:nth-child(even) th {
+    background-color: #25c;
+  }
+
+.batch-table thead{
+    background-color: #333;
+    color: white;
+    font-size: 0.875rem;
+	text-transform: uppercase;
+	letter-spacing: 2%;
+}
+
+.batch-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.batch-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+th:first-of-type {
+    border-top-left-radius: 10px;
+  }
+  th:last-of-type {
+    border-top-right-radius: 10px;
+  }
+  tr:last-of-type td:first-of-type {
+    border-bottom-left-radius: 10px;
+  }
+  tr:last-of-type td:last-of-type {
+    border-bottom-right-radius: 10px;
+  }
