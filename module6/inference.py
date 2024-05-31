@@ -3,10 +3,8 @@ import json
 import pandas as pd
 from flask import Flask, request, jsonify
 
-# Initialize Flask app
 app = Flask(__name__)
 
-# Load model and scaler
 model = joblib.load("model.pkl")
 scaler = joblib.load("scaler.pkl")
 
