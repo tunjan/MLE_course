@@ -1,16 +1,21 @@
-FROM python:3.11-slim
+# Use the official Python base image
+FROM python:3.9-slim
+# Install AWS CLI and boto3
+RUN apt-get update && \
+  apt-get install -y awscli && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* && \
+  pip install boto3
 
-WORKDIR /opt/program
+# Set the working directory
+WORKDIR /app
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+# Copy the Bash script and Python script into the container
+COPY setup.sh .
+COPY endpoint_test.py .
 
+# Make the entrypoint script executable
+RUN chmod +x setup.sh
 
-ENV PYTHONPATH=/opt/program
-EXPOSE 8080
-
-ENV SAGEMAKER_PROGRAM inference.py
-ENV SAGEMAKER_SUBMIT_DIRECTORY /opt/program
-
-# Define the entry point
-ENTRYPOINT ["python", "inference.py"]
+# Set the entrypoint script
+ENTRYPOINT ["./setup.sh"]

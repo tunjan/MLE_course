@@ -39,3 +39,10 @@ The `inference.py` script exposes two endpoints:
 ```bash
 pylint --rcfile=pylintrc inference.py
 ```
+
+## Docker
+
+```bash
+docker build -t aws-script .
+docker run --rm aws-script <access_key_id> <secret_access_key>
+```
