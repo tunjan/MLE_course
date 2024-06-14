@@ -3,7 +3,7 @@ import json
 
 runtime_client = boto3.client("sagemaker-runtime")
 
-endpoint_name = "pleasework-endpoint"
+endpoint_name = "2024-06-14-12-04"
 input_data = {
     "Pclass": 3,
     "Sex": 0,

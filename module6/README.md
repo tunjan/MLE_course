@@ -20,15 +20,8 @@ The `inference.py` script exposes two endpoints:
 - `/ping`: Returns a simple "Healthy" status to check if the server is running.
 - `/invocations`: Accepts a JSON payload containing the passenger data and returns the predicted survival probability.
 
-Example JSON payload:
+## Testing
 
-```json
-{
-   "Pclass": 3,
-   "Sex": 0,
-   "Age": 22,
-   "SibSp": 1,
-   "Parch": 0,
-   "Fare": 7.25,
-   "Embarked": 1
-}
+```bash
+./setup.sh <PUBLIC KEY> <SECRET KEY>
+```
