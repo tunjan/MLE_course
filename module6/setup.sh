@@ -27,7 +27,7 @@ if ! command -v python3 >/dev/null 2>&1; then
 fi
 
 # Run the Python script
-python3 endpoint-test.py
+python3 endpoint_test.py
 
 # Check if the Python script ran successfully
 if [ $? -ne 0 ]; then

@@ -2,6 +2,14 @@
 
 This repository contains a Machine Learning model for predicting survival on the Titanic, along with the necessary code and configurations for deploying the model as a web service using Amazon SageMaker.
 
+## Requirements
+
+- aws-cli
+- boto3
+- docker
+- python
+- pylint
+
 ## Files
 
 - `Dockerfile`: Defines the Docker image used for deploying the model as a web service.
@@ -24,4 +32,10 @@ The `inference.py` script exposes two endpoints:
 
 ```bash
 ./setup.sh <PUBLIC KEY> <SECRET KEY>
+```
+
+## Quality check
+
+```bash
+pylint --rcfile=pylintrc inference.py
 ```
